@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Pixels to rem converter</title>
+
+  <link rel="stylesheet" href="css/reset.css?v=1.0">
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+</head>
+
+<body>
+  <div class="container">
+
+    <form class="converter" id="rem-converter">
+      <h1 class="converter__heading">
+        Convert pixels to rem
+      </h1>
+      <p class="converter__description">Enter your value in pixels and it will be automatically converted to rem</p>
+      <div class="convert__field">
+        <label for="base-size" class="converter__label">
+          Root font-size:
+        </label>
+        <input type="text" name="base-size" id="base-size" value="16" class="converter__input" required>
+      </div>
+
+
+      <div class="converter__wrapper">
+        <div class="convert__field">
+          <label for="pixels" class="converter__label">
+            Pixels:
+          </label>
+          <input type="text" name="pixels" id="pixels" value="20" class="converter__input" required>
+        </div>
+
+        <div class="converter__field">
+          <label for="rem" class="converter__label">
+            REM:
+          </label>
+          <input type="text" name="rem" id="rem" class="converter__input" readonly>
+        </div>
+      </div>
+    </form>
+
+  </div>
+  <script src="js/scripts.js"></script>
+</body>
+
+</html>

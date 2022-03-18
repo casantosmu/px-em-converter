@@ -1,0 +1,214 @@
+/* 
+ * SETTINGS
+ * ================================ */
+:root {
+    /* HSL gray colors */
+    --white: 0, 100%, 100%;
+    --gray-100: 210, 5%, 96%;
+    --gray-200: 210, 16%, 93%;
+    --gray-300: 210, 14%, 89%;
+    --gray-400: 210, 2%, 88%;
+    --gray-500: 210, 11%, 71%;
+    --gray-600: 210, 7%, 46%;
+    --gray-700: 210, 9%, 31%;
+    --gray-800: 210, 10%, 23%;
+    --gray-900: 210, 11%, 15%;
+    --black: 0, 0%, 0%;
+
+    /* HSL Color variables */
+    --red: 0, 72%, 51%;
+    --teal: 175, 84%, 32%;
+    --teal-dark: 175, 83%, 25%;
+
+
+    /* Color themes */
+    --primary: hsl(var(--teal));
+    --primary-dark: hsl(var(--teal-dark));
+    --danger: hsl(var(--red));
+    --light: hsl(var(--gray-100));
+    --dark: hsl(var(--gray-900));
+
+    /* Spacing */
+    --spacer: 1rem;
+    --spacer-0: 0;
+    --spacer-100: calc(var(--spacer) * .25);
+    --spacer-300: calc(var(--spacer) * .5);
+    --spacer-400: var(--spacer);
+    --spacer-500: calc(var(--spacer) * 1.5);
+    --spacer-700: calc(var(--spacer) * 3);
+
+    /* Fonts */
+    --font-family-base: -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Helvetica,
+        Arial,
+        sans-serif,
+        "Apple Color Emoji",
+        "Segoe UI Emoji";
+
+    /*  Typography  */
+    --font-size-base: 1rem;
+    --font-size-100: calc(var(--font-size-base) * .50);
+    --font-size-200: calc(var(--font-size-base) * .75);
+    --font-size-300: calc(var(--font-size-base) * .875);
+    --font-size-400: var(--font-size-base);
+    --font-size-500: calc(var(--font-size-base) * 1.25);
+    --font-size-600: calc(var(--font-size-base) * 1.5);
+    --font-size-700: calc(var(--font-size-base) * 1.75);
+    --font-size-800: calc(var(--font-size-base) * 2);
+    --font-size-900: calc(var(--font-size-base) * 2.5);
+
+    --line-height-base: 1.5;
+    --line-height-sm: 1.25;
+
+    /* Components */
+    --border-width: 1px;
+    --border-color: hsl(var(--gray-300));
+    --border: var(--border-width) solid var(--border-color);
+
+    --border-radius: .25rem;
+
+    --box-shadow: 0 .5rem 1rem hsla(var(--black), .15);
+
+    /* Media queries breakpoints */
+    --breakpoint-sm: 405px;
+    --breakpoint-md: 778px;
+    --breakpoint-lg: 992px;
+    --breakpoint-xl: 1200px;
+    --breakpoint-xxl: 1400px;
+
+    /* Z-index master list */
+}
+
+
+/* 
+ * BASE
+ * ================================ */
+/* Focus */
+*:focus {
+    outline: var(--border-width) dotted var(--primary);
+}
+
+/* Media queries */
+@media (max-width: 405px) {
+    html {
+        font-size: .8rem;
+    }
+}
+
+@media (max-width: 778px) {
+    html {
+        font-size: .9rem;
+    }
+}
+
+/* Body */
+body {
+    background-color: var(--primary-dark);
+    color: var(--dark);
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+}
+
+/* Links */
+a {
+    color: var(--primary);
+}
+
+a:focus,
+a:hover,
+a:active {
+    color: var(--primary-dark);
+}
+
+/* 
+ * OBJECTS
+ * ================================ */
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    height: 100%;
+    margin: 0 auto;
+    padding: var(--spacer-400) 0;
+}
+
+
+/* 
+ * COMPONENTS
+ * ================================ */
+
+/* CONVERTER */
+.converter {
+    padding: var(--spacer-700) var(--spacer-500);
+    background-color: var(--light);
+    border-radius: var(--border-radius);
+    border: var(--border);
+    box-shadow: var(--box-shadow);
+}
+
+.converter__heading {
+    font-size: var(--font-size-900);
+    font-weight: 500;
+    line-height: var(--line-height-sm);
+    margin-bottom: var(--spacer-300);
+    color: var(--primary);
+}
+
+.converter__description {
+    margin-bottom: var(--spacer-500);
+    color: hsl(var(--gray-700));
+}
+
+.converter__heading,
+.converter__description {
+    text-align: center;
+}
+
+.converter__label,
+.converter__input {
+    font-size: var(--font-size-500);
+    font-weight: 500;
+}
+
+.converter__label {
+    display: block;
+    margin-bottom: var(--spacer-100);
+}
+
+.converter__input {
+    width: 100%;
+    margin-bottom: var(--spacer-400);
+    padding: var(--spacer-300) var(--spacer-400);
+    border: var(--border);
+    border-radius: var(--border-radius);
+}
+
+.converter__input--error {
+    outline: 3px solid var(--danger)
+}
+
+@media (min-width: 992px) {
+    .converter {
+        padding: var(--spacer-700);
+    }
+
+    .converter__wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-top: var(--spacer-500);
+    }
+
+    /* Space between flexed inputs */
+    .converter__wrapper>* {
+        width: 47%;
+    }
+
+    .converter__input {
+        margin-bottom: var(--spacer-0);
+    }
+}

@@ -1,3 +1,5 @@
+const roundTo = (value, decimals) => Number(Math.round(value + 'e' + decimals) + 'e-' + decimals);
+
 const calculateRem = () => {
     const baseSize = document.querySelector('#base-size').value.replace(/\s/g, "")
     const pixels = document.querySelector('#pixels').value.replace(/\s/g, "")
@@ -7,7 +9,7 @@ const calculateRem = () => {
 
 const showRem = () => {
     const input = document.querySelector('#rem')
-    const result = calculateRem()
+    const result = roundTo(calculateRem(), 3)
     if (isFinite(result)) input.value = result + 'rem'
 }
 
